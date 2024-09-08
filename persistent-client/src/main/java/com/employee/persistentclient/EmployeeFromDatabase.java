@@ -2,7 +2,6 @@ package com.employee.persistentclient;
 
 import com.employee.dto.EmployeeDto;
 import com.employee.entity.Employee;
-import com.employee.port.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 @Service
 @EnableJpaRepositories
 @EntityScan("com.employee")
-public class EmployeeFromDatabase implements EmployeeService {
+public class EmployeeFromDatabase implements com.employee.repo.EmployeeRepository {
     @Autowired
     private final EmployeeRepository employeeRepository;
     @Autowired
@@ -38,5 +37,11 @@ public class EmployeeFromDatabase implements EmployeeService {
     @Override
     public List<EmployeeDto> getAllEmployees() {
         return employeeRepository.findAll().stream().map(Employee::mapEntityToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public void addAllEmployees(List<EmployeeDto> employeeDtos) {
+        List<Employee> employees = employeeDtos.stream().map(Employee::mapDtoToEntity).collect(Collectors.toList());
+        employeeRepository.saveAll(employees);
     }
 }

@@ -1,19 +1,18 @@
-package com.employee.port;
+package com.employee.repo;
 
 import com.employee.dto.EmployeeDto;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeeService {
+public interface EmployeeRepository {
     Optional<EmployeeDto> getEmployeeById(Long id);
 
-    void addEmployee(EmployeeDto employee);
+    void addEmployee(EmployeeDto employeeDto);
 
     void deleteEmployee(Long id);
 
     List<EmployeeDto> getAllEmployees();
 
-    void addAllEmployees(MultipartFile file);
+    void addAllEmployees(List<EmployeeDto> employeeDtos);
 }

@@ -1,17 +1,23 @@
 package com.employee.entity;
 
 import com.employee.dto.EmployeeDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "EMPLOYEE")
 @AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
     @Id
+    @Column(name = "EMPLOYEE_ID")
     private Long id;
+    @Column(name = "EMPLOYEE_NAME")
     private String name;
+    @Column(name = "EMPLOYEE_DEPT")
     private String department;
+    @Column(name = "EMPLOYEE_SAL")
     private Double salary;
 
     public static EmployeeDto mapEntityToDto(Employee employee){

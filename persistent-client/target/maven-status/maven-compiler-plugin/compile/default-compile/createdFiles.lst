@@ -1,2 +1,3 @@
-com\employee\EmployeeRepository.class
-entity\Employee.class
+com\employee\persistentclient\EmployeeRepository.class
+com\employee\persistentclient\EmployeeFromDatabase.class
+com\employee\entity\Employee.class
