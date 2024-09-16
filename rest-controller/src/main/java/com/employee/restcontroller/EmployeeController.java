@@ -28,7 +28,7 @@ public class EmployeeController {
             @ApiResponse(responseCode = "404", description = "Employee not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    public EmployeeDto getEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") Long id) {
+    public EmployeeDto getEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") String id) {
         return employeeService.getEmployeeById(id);
     }
 
@@ -48,7 +48,7 @@ public class EmployeeController {
             @ApiResponse(responseCode = "404", description = "Employee not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    public void deleteEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") Long id) {
+    public void deleteEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") String id) {
         employeeService.deleteEmployee(id);
     }
 

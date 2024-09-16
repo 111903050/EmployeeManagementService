@@ -28,7 +28,7 @@ public class EmployeeDomain implements EmployeeService{
     }
 
     @Override
-    public EmployeeDto getEmployeeById(Long id) {
+    public EmployeeDto getEmployeeById(String id) {
         return employeeRepository.getEmployeeById(id);
 
     }
@@ -39,7 +39,7 @@ public class EmployeeDomain implements EmployeeService{
     }
 
     @Override
-    public void deleteEmployee(Long id) {
+    public void deleteEmployee(String id) {
         employeeRepository.deleteEmployee(id);
     }
 
@@ -68,7 +68,7 @@ public class EmployeeDomain implements EmployeeService{
                 for (int i = 0; i < headers.size(); i++) {
                     Cell cell = row.getCell(i);
                     if(i==0){
-                        employeeDto.setId((long) cell.getNumericCellValue());
+                        employeeDto.setId(cell.getStringCellValue());
                     }
                     else if (i==1){
                         employeeDto.setName(cell.getStringCellValue());

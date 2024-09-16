@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Employee {
     @Id
     @Column(name = "EMPLOYEE_ID")
-    private Long id;
+    private String id;
     @Column(name = "EMPLOYEE_NAME")
     private String name;
     @Column(name = "EMPLOYEE_DEPT")

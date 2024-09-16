@@ -22,7 +22,7 @@ public class EmployeeFromDatabase implements com.employee.repo.EmployeeRepositor
         this.employeeRepository = employeeRepository;
     }
     @Override
-    public EmployeeDto getEmployeeById(Long id) {
+    public EmployeeDto getEmployeeById(String id) {
         EmployeeDto employeeDto;
         try{
             Employee employee = employeeRepository.findEmployeeById(id);
@@ -38,7 +38,7 @@ public class EmployeeFromDatabase implements com.employee.repo.EmployeeRepositor
         employeeRepository.save(employee);
     }
     @Override
-    public void deleteEmployee(Long id) {
+    public void deleteEmployee(String id) {
         employeeRepository.deleteById(id);
     }
     @Override

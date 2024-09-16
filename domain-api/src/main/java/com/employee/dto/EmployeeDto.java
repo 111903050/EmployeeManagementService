@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class EmployeeDto {
     @Schema(description = "Employee Id")
-    public Long id;
+    public String id;
     @Schema(description = "Employee Name")
     public String name;
     @Schema(description = "Employee department")

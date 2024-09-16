@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeService {
-    EmployeeDto getEmployeeById(Long id);
+    EmployeeDto getEmployeeById(String id);
 
     void addEmployee(EmployeeDto employee);
 
-    void deleteEmployee(Long id);
+    void deleteEmployee(String id);
 
     List<EmployeeDto> getAllEmployees();
 

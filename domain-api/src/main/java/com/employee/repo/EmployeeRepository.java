@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeRepository {
-    EmployeeDto getEmployeeById(Long id);
+    EmployeeDto getEmployeeById(String id);
 
     void addEmployee(EmployeeDto employeeDto);
 
-    void deleteEmployee(Long id);
+    void deleteEmployee(String id);
 
     List<EmployeeDto> getAllEmployees();
 
