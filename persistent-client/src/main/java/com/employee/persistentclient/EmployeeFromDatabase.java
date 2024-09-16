@@ -22,8 +22,15 @@ public class EmployeeFromDatabase implements com.employee.repo.EmployeeRepositor
         this.employeeRepository = employeeRepository;
     }
     @Override
-    public Optional<EmployeeDto> getEmployeeById(Long id) {
-        return employeeRepository.findById(id).map(Employee::mapEntityToDto);
+    public EmployeeDto getEmployeeById(Long id) {
+        EmployeeDto employeeDto;
+        try{
+            Employee employee = employeeRepository.findEmployeeById(id);
+            return Employee.mapEntityToDto(employee);
+        }
+        catch(Exception e){
+            throw new RuntimeException("Employee not found", e);
+        }
     }
     @Override
     public void addEmployee(EmployeeDto employeeDto) {
