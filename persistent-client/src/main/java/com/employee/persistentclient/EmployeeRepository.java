@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 @Repository
 @Service
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    Employee findEmployeeById(Long id);
 }

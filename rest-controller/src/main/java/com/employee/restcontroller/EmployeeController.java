@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.naming.Name;
 import java.util.List;
 
 @RestController
@@ -21,9 +23,13 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public EmployeeDto getEmployee(@PathVariable Long id) {
-        return employeeService.getEmployeeById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found"));
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Employee found successfully"),
+            @ApiResponse(responseCode = "404", description = "Employee not found"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public EmployeeDto getEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") Long id) {
+        return employeeService.getEmployeeById(id);
     }
 
     @PostMapping(path ="/post", produces = "application/json")
@@ -37,7 +43,12 @@ public class EmployeeController {
     }
 
     @DeleteMapping(path= "/{id}")
-    public void deleteEmployee(@PathVariable Long id) {
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Employee found successfully"),
+            @ApiResponse(responseCode = "404", description = "Employee not found"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public void deleteEmployee(@Parameter(description = "Employee Id", example = "1") @PathVariable(name = "id") Long id) {
         employeeService.deleteEmployee(id);
     }
 

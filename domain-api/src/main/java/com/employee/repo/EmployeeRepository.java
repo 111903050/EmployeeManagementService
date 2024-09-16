@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeRepository {
-    Optional<EmployeeDto> getEmployeeById(Long id);
+    EmployeeDto getEmployeeById(Long id);
 
     void addEmployee(EmployeeDto employeeDto);
 
