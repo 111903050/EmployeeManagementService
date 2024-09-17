@@ -71,13 +71,25 @@ public class EmployeeDomain implements EmployeeService{
                         employeeDto.setId(cell.getStringCellValue());
                     }
                     else if (i==1){
-                        employeeDto.setName(cell.getStringCellValue());
+                        employeeDto.setFirstName(cell.getStringCellValue());
                     }
                     else if(i==2){
-                        employeeDto.setDepartment(cell.getStringCellValue());
+                        employeeDto.setLastName(cell.getStringCellValue());
                     }
-                    else{
-                        employeeDto.setSalary(cell.getNumericCellValue());
+                    else if(i==3){
+                        employeeDto.setEmail(cell.getStringCellValue());
+                    }
+                    else if(i==4){
+                        employeeDto.setPhoneNumber(cell.getStringCellValue());
+                    }
+                    else if(i==5){
+                        employeeDto.setHireDate(cell.getLocalDateTimeCellValue().toLocalDate());
+                    }
+                    else if(i==6){
+                        employeeDto.setDateOfBirth(cell.getLocalDateTimeCellValue().toLocalDate());
+                    }
+                    else if(i==7){
+                        employeeDto.setAddress((int) cell.getNumericCellValue());
                     }
                 }
                 employeeDtos.add(employeeDto);
