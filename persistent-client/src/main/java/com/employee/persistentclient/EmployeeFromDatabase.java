@@ -2,19 +2,19 @@ package com.employee.persistentclient;
 
 import com.employee.dto.EmployeeDto;
 import com.employee.entity.Employee;
+import com.employee.repo.EmployeeJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @EnableJpaRepositories
 @EntityScan("com.employee")
-public class EmployeeFromDatabase implements com.employee.repo.EmployeeRepository {
+public class EmployeeFromDatabase implements EmployeeJpaRepository {
     @Autowired
     private final EmployeeRepository employeeRepository;
     @Autowired

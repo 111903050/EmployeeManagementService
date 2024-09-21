@@ -9,12 +9,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.naming.Name;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/employee-management")
+@RequestMapping("api/v1/employee")
 public class EmployeeController {
     private final EmployeeService employeeService;
 

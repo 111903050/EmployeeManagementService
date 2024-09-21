@@ -1,29 +1,33 @@
 package com.employee.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Builder
+@Getter
+@Setter
 public class EmployeeDto {
-    @Schema(description = "Employee Id")@NonNull
+    @Schema(description = "Employee Id", example = "EMP0001")
     public String id;
-    @Schema(description = "Employee First Name")@NonNull
-    public String firstName;
-    @Schema(description = "Employee Last Name")@NonNull
-    public String lastName;
-    @Schema(description = "Employee Email")@NonNull
+    @Schema(description = "Employee FirstName", example = "Vishu")
+    public String first_name;
+    @Schema(description = "Employee LastName", example = "Waghmare")
+    public String last_name;
+    @Schema(description = "Employee Email", example = "Vishu@gmail.com")
     public String email;
-    @Schema(description = "Employee Phone Number")@NonNull
-    public String phoneNumber;
-    @Schema(description = "Employee Hire Date")@NonNull
-    public LocalDate hireDate;
-    @Schema(description = "Employee Date Of Birth")@NonNull
-    public LocalDate dateOfBirth;
-    @Schema(description = "Employee Address")@NonNull
-    public int address;
+    @Schema(description = "Employee PhoneNumber", example = "827198739123")
+    public String phone_number;
+    @Schema(description = "Employee HireDate", example = "2024-09-17")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    public LocalDate hire_date;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    @Schema(description = "Employee DateOfBirth", example = "2024-09-17")
+    public LocalDate date_of_birth;
 }

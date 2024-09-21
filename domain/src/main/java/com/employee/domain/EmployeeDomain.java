@@ -2,7 +2,7 @@ package com.employee.domain;
 
 import com.employee.dto.EmployeeDto;
 import com.employee.port.EmployeeService;
-import com.employee.repo.EmployeeRepository;
+import com.employee.repo.EmployeeJpaRepository;
 import lombok.Builder;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -20,32 +20,32 @@ import java.util.*;
 @Builder
 @Component
 public class EmployeeDomain implements EmployeeService{
-    public final EmployeeRepository employeeRepository;
+    public final EmployeeJpaRepository employeeJpaRepository;
 
     @Autowired
-    public EmployeeDomain(EmployeeRepository employeeRepository){
-        this.employeeRepository = employeeRepository;
+    public EmployeeDomain(EmployeeJpaRepository employeeJpaRepository){
+        this.employeeJpaRepository = employeeJpaRepository;
     }
 
     @Override
     public EmployeeDto getEmployeeById(String id) {
-        return employeeRepository.getEmployeeById(id);
+        return employeeJpaRepository.getEmployeeById(id);
 
     }
 
     @Override
     public void addEmployee(EmployeeDto employee) {
-        employeeRepository.addEmployee(employee);
+        employeeJpaRepository.addEmployee(employee);
     }
 
     @Override
     public void deleteEmployee(String id) {
-        employeeRepository.deleteEmployee(id);
+        employeeJpaRepository.deleteEmployee(id);
     }
 
     @Override
     public List<EmployeeDto> getAllEmployees() {
-        return employeeRepository.getAllEmployees();
+        return employeeJpaRepository.getAllEmployees();
     }
 
     @Override
@@ -71,31 +71,31 @@ public class EmployeeDomain implements EmployeeService{
                         employeeDto.setId(cell.getStringCellValue());
                     }
                     else if (i==1){
-                        employeeDto.setFirstName(cell.getStringCellValue());
+                        employeeDto.setFirst_name(cell.getStringCellValue());
                     }
                     else if(i==2){
-                        employeeDto.setLastName(cell.getStringCellValue());
+                        employeeDto.setLast_name(cell.getStringCellValue());
                     }
                     else if(i==3){
                         employeeDto.setEmail(cell.getStringCellValue());
                     }
                     else if(i==4){
-                        employeeDto.setPhoneNumber(cell.getStringCellValue());
+                        employeeDto.setPhone_number(cell.getStringCellValue());
                     }
                     else if(i==5){
-                        employeeDto.setHireDate(cell.getLocalDateTimeCellValue().toLocalDate());
+                        employeeDto.setHire_date(cell.getLocalDateTimeCellValue().toLocalDate());
                     }
                     else if(i==6){
-                        employeeDto.setDateOfBirth(cell.getLocalDateTimeCellValue().toLocalDate());
+                        employeeDto.setDate_of_birth(cell.getLocalDateTimeCellValue().toLocalDate());
                     }
                     else if(i==7){
-                        employeeDto.setAddress((int) cell.getNumericCellValue());
+                        //employeeDto.setAddressId((int) cell.getNumericCellValue());
                     }
                 }
                 employeeDtos.add(employeeDto);
             }
             workbook.close();
-            employeeRepository.addAllEmployees(employeeDtos);
+            employeeJpaRepository.addAllEmployees(employeeDtos);
 
         } catch (Exception e) {
             e.printStackTrace();

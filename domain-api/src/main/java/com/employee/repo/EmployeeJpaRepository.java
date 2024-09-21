@@ -3,9 +3,8 @@ package com.employee.repo;
 import com.employee.dto.EmployeeDto;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface EmployeeRepository {
+public interface EmployeeJpaRepository {
     EmployeeDto getEmployeeById(String id);
 
     void addEmployee(EmployeeDto employeeDto);

@@ -1,3 +1,9 @@
-com\employee\persistentclient\EmployeeRepository.class
+com\employee\persistentclient\LeaveRequestRepository.class
 com\employee\persistentclient\EmployeeFromDatabase.class
+com\employee\entity\LeaveRequest.class
+com\employee\persistentclient\EmployeeRepository.class
+com\employee\entity\Address.class
+com\employee\persistentclient\LeaveRequestFromDatabase.class
+com\employee\persistentclient\AddressRepository.class
 com\employee\entity\Employee.class
+com\employee\persistentclient\AddressFromDatabase.class

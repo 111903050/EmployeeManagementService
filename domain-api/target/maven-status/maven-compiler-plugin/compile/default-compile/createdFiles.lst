@@ -1,4 +1,9 @@
-com\employee\dto\EmployeeDto$EmployeeDtoBuilder.class
-com\employee\repo\EmployeeRepository.class
+com\employee\repo\LeaveRequestJpaRepository.class
+com\employee\repo\EmployeeJpaRepository.class
 com\employee\dto\EmployeeDto.class
+com\employee\dto\AddressDto.class
+com\employee\dto\LeaveRequestDto.class
+com\employee\port\AddressService.class
+com\employee\port\LeaveRequestService.class
+com\employee\repo\AddressJpaRepository.class
 com\employee\port\EmployeeService.class
